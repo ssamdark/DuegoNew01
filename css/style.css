@@ -1,0 +1,227 @@
+/* 기본 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+#wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* 헤더 */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+#header.scrolled {
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#header.scrolled .logo a,
+#header.scrolled .gnb a {
+    color: #111;
+}
+
+#header.scrolled .gnb a:hover {
+    color: #007bff;
+}
+
+#header .inner {
+    max-width: 1800px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+#header .logo a {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #fff;
+    transition: color 0.4s ease;
+}
+
+#header .gnb ul {
+    display: flex;
+    gap: 50px;
+}
+
+#header .gnb a {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+#header .gnb a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+/* 히어로 섹션 */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 2;
+}
+
+/* 히어로 텍스트 (정중앙) */
+.hero-text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.hero-text-box .fixed-text {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+/* 바뀌는 단어 */
+.word-rotator {
+    position: relative;
+    height: 1.15em;
+    overflow: visible;
+}
+
+.word-rotator span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.word-rotator span.is-visible {
+    opacity: 1;
+}
+
+/* 하단 퀵 내비게이션 */
+.bottom-quick-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    z-index: 20;
+    align-items: flex-end;
+}
+
+.nav-item {
+    flex: 1;
+    height: 140px;
+    padding: 30px 40px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                background 0.4s ease,
+                padding-bottom 0.4s ease;
+}
+
+.nav-item:last-child {
+    border-right: none;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.16);
+    height: 170px;
+    padding-bottom: 55px;
+}
+
+.nav-item .num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #007bff;
+    display: block;
+    margin-bottom: 14px;
+    letter-spacing: 0.1em;
+}
+
+.nav-item .name {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    color: #fff;
+}
