@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rotator) {
         const spans = rotator.querySelectorAll('span');
         let currentIndex = 0;
+        spans[0].classList.add('is-visible'); // 초기 첫 번째 단어 표시
         const waitTime = 2500;
         const transitionTime = 600;
 

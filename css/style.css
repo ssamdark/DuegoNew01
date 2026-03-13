@@ -149,7 +149,7 @@ html {
 /* 바뀌는 단어 */
 .word-rotator {
     position: relative;
-    height: 1.3em;
+    height: 9rem;
     overflow: hidden;
     padding-bottom: 0.1em;
 }
