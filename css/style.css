@@ -149,15 +149,16 @@ html {
 /* 바뀌는 단어 */
 .word-rotator {
     position: relative;
-    height: 1.15em;
+    height: 1.3em;
     overflow: hidden;
+    padding-bottom: 0.1em;
 }
 
 .word-rotator span {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%) translateY(100%);
+    transform: translateX(-50%) translateY(110%);
     font-size: 7.5rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -167,6 +168,7 @@ html {
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
     pointer-events: none;
     white-space: nowrap;
+    line-height: 1.2;
 }
 
 .word-rotator span.is-visible {
@@ -175,7 +177,7 @@ html {
 }
 
 .word-rotator span.is-hidden {
-    transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-110%);
     opacity: 0;
 }
 
