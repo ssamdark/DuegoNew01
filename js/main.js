@@ -11,22 +11,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 바뀌는 단어 순환 (페이드인/아웃)
+    // 바뀌는 단어 순환 (슬라이드업 전환)
     const rotator = document.querySelector('.word-rotator');
     if (rotator) {
         const spans = rotator.querySelectorAll('span');
         let currentIndex = 0;
-        const interval = 2500;
+        const waitTime = 2500;
+        const transitionTime = 600;
 
         function rotateWord() {
-            spans[currentIndex].classList.remove('is-visible');
-
+            const current = spans[currentIndex];
             currentIndex = (currentIndex + 1) % spans.length;
+            const next = spans[currentIndex];
 
-            spans[currentIndex].classList.add('is-visible');
+            // 현재 단어: 위로 슬라이드 아웃
+            current.classList.remove('is-visible');
+            current.classList.add('is-hidden');
+
+            // 다음 단어: 아래에서 위로 슬라이드 인
+            next.classList.remove('is-hidden');
+            next.offsetHeight; // reflow 강제 실행
+            next.classList.add('is-visible');
+
+            // 아웃된 단어 초기 위치 복원 (트랜지션 완료 후)
+            setTimeout(() => {
+                current.classList.remove('is-hidden');
+            }, transitionTime);
         }
 
-        setInterval(rotateWord, interval);
+        setInterval(rotateWord, waitTime);
     }
 
     // 하단 퀵 네비 hover 인터랙션
